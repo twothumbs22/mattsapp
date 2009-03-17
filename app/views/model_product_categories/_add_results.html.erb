@@ -1,0 +1,11 @@
+<% if flash[:notice] -%>
+  <div id="notice"><%= flash[:notice] %></div>
+<% else -%>
+- <%=h @mpc_to_save.model.year %> |
+<%=h @mpc_to_save.model.model %> |
+<%=h @mpc_to_save.product.product_number %> |
+<%=h @mpc_to_save.category.category_name %> |
+<%=h @mpc_to_save.note %> - 
+was added.
+<br />
+<% end -%>

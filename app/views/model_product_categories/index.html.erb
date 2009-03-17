@@ -1,0 +1,26 @@
+<h1>Listing model_product_categories</h1>
+
+<table>
+  <tr>
+    <th>Model</th>
+    <th>Product</th>
+    <th>Note</th>
+    <th>Category</th>
+  </tr>
+
+<% for model_product_category in @model_product_categories %>
+  <tr>
+    <td><%=h model_product_category.model_id %></td>
+    <td><%=h model_product_category.product_id %></td>
+    <td><%=h model_product_category.note %></td>
+    <td><%=h model_product_category.category_id %></td>
+    <td><%= link_to 'Show', model_product_category %></td>
+    <td><%= link_to 'Edit', edit_model_product_category_path(model_product_category) %></td>
+    <td><%= link_to 'Destroy', model_product_category, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New model_product_category', new_model_product_category_path %>

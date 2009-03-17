@@ -1,0 +1,134 @@
+@CHARSET "ISO-8859-1";
+
+/*
+	New place to grow CSS styles for mcdonaldatvonline website.
+	Current Version 1.0	
+*/
+
+/* basic layout styles */
+
+body {
+background-color:#dc8;
+font-size:13px;
+margin:0;
+padding:0;}
+
+#header {	
+display:none;}
+
+#top {
+display:none;}
+
+#center {
+background-color:#eec;
+min-height:600px; /* for modern browsers */
+height:auto !important; /* for modern browsers */
+position:relative;
+top:105px;
+bottom:40px;
+z-index:3;}
+
+#footer {
+display:none;}
+
+#details {
+position:fixed;
+right:5px;
+top:105px;
+bottom:auto;
+left:auto;
+width:350px;
+z-index:7;}
+
+.left-element {
+position:absolute;
+left:10px;}
+	
+.padbottom {
+display:block;
+height:30px;}
+
+/* 
+	Table display styles 
+*/
+
+.tableone {
+border-collapse:collapse;
+margin-left:10px;
+margin-right:auto;
+background:#697210;
+border:1px solid #fff;
+color:#fff;}
+
+.tableone td { border-bottom:1px solid #fff; color:#fff; padding-left:3px; padding-right:2px;}
+.tableone tbody { background:#eec; color:#000;}
+caption {background:#fff; color:#697210; font-size:1.2em; margin-left:10px; margin-right:auto;}
+.tableone th, .tabletwo th {text-align:left;}
+
+.tabletwo {
+border-collapse:collapse;}
+
+.tabletwo td {background:#eee; color:#000;}
+.tabletwo tr.dk td {background:#ddd; color:#000;}
+
+.tablethree {
+border-collapse:collapse;
+margin-left:10px;
+margin-right:auto;
+background:#697210;
+border:1px solid #fff;
+color:#fff;}
+
+.tablethree td {background:#eee; color:#000;}
+
+.innerb {
+height:20em;
+overflow:auto;}
+
+.td1 {border-right:1px solid #000;}
+.td2 {border-right:1px solid #fff;}
+.td3 {border-right:1px solid #000; color:#000;}
+.th1 {border-right:1px solid #fff;}
+.th10 {border-right:1px solid #fff; background:#697210;}
+
+.tabledetails {
+background:#697210;
+border:1px solid #fff;
+color:#fff;}
+
+/*
+	Popup display styles (Dealer)
+*/
+
+.lookup-table {
+background:#697210;
+border:1px solid #fff;
+color:#fff;}
+
+.row {
+clear:both;
+float:none;
+padding:2px;
+margin-left:5px;}
+
+.form-element {
+float:left;
+margin-right:2px;
+margin-bottom:0px;}
+
+.lookup-table .form-element input {
+padding:1px;}
+
+fieldset {
+
+}
+
+.lookup-table label {
+display:block;
+font-family:Verdana, sans-serif;
+color:#fff;
+font-size:9px;
+padding-bottom:0px;}
+
+form {
+display: inline;}

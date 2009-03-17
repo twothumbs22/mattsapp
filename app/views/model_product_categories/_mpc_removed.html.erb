@@ -1,0 +1,10 @@
+<div class="editor-div-sub">
+<%= hidden_field_tag "#{params[:atv_model]}", params[:atv_model] %>
+<%= hidden_field_tag 'atv_category', @atv_category %>
+	      	        
+<%= link_to_remote "#{@atv_model[1].slice(-2,2)}",
+	:url => { :action => :add_mpc }, 
+	:with => " 'atv_category=' +$F('atv_category') 
+			  +'&atv_product=' +$F('#{params[:atv_product]}') 																		  						  +'&atv_model=' +$F('#{params[:atv_model]}')
+			  +'&atv_note=' +$F('atv_note') " %>	    
+</div>

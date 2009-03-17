@@ -1,0 +1,42 @@
+<%= form_remote_tag :update => "results", :url => { :action => "display_atv" } %>
+<table class="" cols="3">
+<tr>
+  <td width="50">
+	<div class="catalogentry" id="select1">
+   	  <select name="atv_make" id="atv_make">
+		<option value="">Choose a Make...</option> 
+    	  <% for item in @atv_makes %>
+			<option value="<%= h(item.make) -%>" <% if $atv_make==item.make -%> selected 
+		  <% end -%>>
+	 	  <%= h(item.make) -%></option><% end %>
+   	  </select>
+	</div>
+  </td>
+  <td align="left">
+	<div class="catalogentry" id="select2">	
+	  <div class="catalogentry" id="select3"></div>&nbsp;						
+	  <div class="catalogentry" id="select4"></div>						
+	</div>
+  </td>
+  <td>
+	<%= submit_to_remote("go", "GO", :url => { :action => "display_atv" },
+	  :failure => "alert('Oops! Try Again!');", :update => "results") %>			
+  </td>
+</tr>
+</table> 
+
+<table>
+<tr>
+  <td colspan="3" align="left">
+    <div class="" id="results"></div>
+  </td>
+</tr>
+</table>
+
+<%= observe_field("atv_make",
+   :update => "select2",
+   :url => { :action => :model_select2},
+   :with => "atv_make") %>   
+   
+
+<%= link_to 'Add Applications', add_app_path %>

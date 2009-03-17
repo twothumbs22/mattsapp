@@ -1,0 +1,33 @@
+<p>
+  <b>Model:</b>
+  <%=h @model.model_id %>
+</p>
+
+<p>
+  <b>Make:</b>
+  <%=h @model.make %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%=h @model.model %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%=h @model.year %>
+</p>
+
+<p>
+  <b>Cc:</b>
+  <%=h @model.cc %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @model.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_model_path(@model) %> |
+<%= link_to 'Back', models_path %>

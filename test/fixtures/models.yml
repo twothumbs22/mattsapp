@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  model_id: 1
+  make: MyString
+  model: MyString
+  year: 1
+  cc: 1
+  description: MyString
+
+two:
+  model_id: 1
+  make: MyString
+  model: MyString
+  year: 1
+  cc: 1
+  description: MyString

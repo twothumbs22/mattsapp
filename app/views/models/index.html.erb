@@ -1,0 +1,30 @@
+<h1>Listing models</h1>
+
+<table>
+  <tr>
+    <th>Model</th>
+    <th>Make</th>
+    <th>Model</th>
+    <th>Year</th>
+    <th>Cc</th>
+    <th>Description</th>
+  </tr>
+
+<% for model in @models %>
+  <tr>
+    <td><%=h model.model_id %></td>
+    <td><%=h model.make %></td>
+    <td><%=h model.model %></td>
+    <td><%=h model.year %></td>
+    <td><%=h model.cc %></td>
+    <td><%=h model.description %></td>
+    <td><%= link_to 'Show', model %></td>
+    <td><%= link_to 'Edit', edit_model_path(model) %></td>
+    <td><%= link_to 'Destroy', model, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New model', new_model_path %>

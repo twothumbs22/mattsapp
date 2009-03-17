@@ -1,0 +1,16 @@
+<table>
+<tr>
+  <td>
+	<div class="" id="select3">
+      <select name="atv_model[]" id="atv_model[]" size="30" multiple="multiple">
+    	  <% for item in @atv_models %>
+			<option value="<%= h(item.id) -%>"> 
+			<%= h(item.cc) -%> | <%= h(item.year) -%> |
+			<% if $atv_make != "Polaris" -%><%= h(item.model) -%><% end -%> - <%= h(item.description) -%></option>
+    	  <% end %>
+   	  </select>
+
+	</div>
+  </td>
+</tr>
+</table>

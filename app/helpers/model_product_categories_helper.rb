@@ -1,0 +1,2 @@
+module ModelProductCategoriesHelper
+end

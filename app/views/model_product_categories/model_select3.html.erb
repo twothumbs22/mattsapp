@@ -1,0 +1,27 @@
+<% if @atv_models -%>
+  <select name="atv_model" id="atv_model">
+    <% for item in @atv_models %>
+	  <option value="<%= h(item.description) -%>" <% if $atv_model==item.description -%> selected <% end -%>> 
+	    <%= h(item.model) -%> - <%= h(item.description) -%></option>
+    <% end %>
+  </select>
+
+<%= observe_field("atv_model",
+  :update => "select4",
+  :url => { :action => :model_select3 },
+  :with => "atv_model") -%>
+<% end -%>
+
+<% if @atv_years -%>
+  <select name="atv_year" id="atv_year">
+    <% for item in @atv_years %>
+	  <option value="<%= h(item.year) -%>" <% if $atv_year==item.year.to_s -%> selected <% end -%>> 
+		<%= h(item.year) -%></option>
+    <% end %>
+  </select>
+
+<%= observe_field("atv_year",
+   :update => "select3",
+   :url => { :action => :model_select3 },
+   :with => "atv_year") -%>
+<% end -%>

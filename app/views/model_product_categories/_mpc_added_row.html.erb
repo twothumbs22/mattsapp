@@ -1,0 +1,36 @@
+<table>
+<tr>
+  <td class="th1"><%= text_field_tag @product.product_number, @product.product_number, :disabled => true  %></td>
+  <% for item in @mod_sum.models %>
+    <td id="<%= @mod_sum.id.to_s %><%= item.year.to_s %><%= @product.product_number %>" 
+      <% if @mod_sum_hash.include?(item.year) %>
+        class="active-app">	      	        
+        <div class="editor-div-add">
+          <%= hidden_field_tag "#{@mod_sum.id.to_s}#{item.year.to_s}", @mod_sum.id.to_s+'_'+item.year.to_s %>
+          <%= hidden_field_tag 'atv_category', @atv_category %>
+	      	        
+      	  <%= link_to_remote "#{item.year.to_s.slice(2,3)}",
+				:url => { :action => :remove_mpc }, 
+				:with => " 'atv_category=' +$F('atv_category') 
+						  +'&atv_product=' +$F('#{@product.product_number}') 																		  				  +'&atv_model=' +$F('#{@mod_sum.id.to_s}#{item.year.to_s}') " %>	    
+		</div>
+	</td>					      	        
+	  <% else -%> 
+        class="inactive-app">
+        <div class="editor-div-sub">
+	      <%= hidden_field_tag "#{@mod_sum.id.to_s}#{item.year.to_s}", @mod_sum.id.to_s+'_'+item.year.to_s %>
+	      <%= hidden_field_tag 'atv_category', @atv_category %>
+	      	        
+		  <%= link_to_remote "#{item.year.to_s.slice(2,3)}",
+				:url => { :action => :add_mpc }, 
+				:with => " 'atv_category=' +$F('atv_category') 
+						  +'&atv_product=' +$F('#{@product.product_number}') 																		  				  +'&atv_model=' +$F('#{@mod_sum.id.to_s}#{item.year.to_s}')
+						  +'&atv_note=' +$F('atv_note') " %>	    
+		</div>		  			
+    </td>	  	      
+	  <% end -%>
+  <% end -%>
+</tr>
+
+</table>
+  

@@ -1,0 +1,13 @@
+<%= link_to_remote "Clear Table", :update => "results", 
+			:url => { :action => "clear_model_summary_table"} %> | 
+<%= link_to_remote "Rebuild Table", :update => "results", 
+			:url => { :action => "update_model_summary_table"} %> | 
+<%= link_to_remote "Relink to Models", :update => "results", 
+			:url => { :action => "relink_model_and_summary_ids"} %> | 
+<%= link_to_remote "Rebuild Years", :update => "results", 
+			:url => { :action => "update_model_summary_years"} %> | 
+
+
+
+<br />
+<div id="results"></div>

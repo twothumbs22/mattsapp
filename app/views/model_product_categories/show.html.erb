@@ -1,0 +1,23 @@
+<p>
+  <b>Model:</b>
+  <%=h @model_product_category.model_id %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%=h @model_product_category.product_id %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%=h @model_product_category.note %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%=h @model_product_category.category_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_model_product_category_path(@model_product_category) %> |
+<%= link_to 'Back', model_product_categories_path %>

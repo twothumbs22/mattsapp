@@ -1,0 +1,8 @@
+<% if flash[:notice] -%>
+  <div id="notice"><%= flash[:notice] %></div>
+<% end -%>
+- <%=h @mpc_to_remove.model_id %>
+<%=h @mpc_to_remove.product_id %>
+<%=h @mpc_to_remove.category_id %> - 
+was removed
+<br />

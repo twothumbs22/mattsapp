@@ -1,0 +1,49 @@
+<% if flash[:notice] -%>
+  <div id="notice"><%= flash[:notice] %></div>
+<% end -%>
+
+  <div id="tableContainer" class="tableContainer">
+	<table class="scrollTable" width="100%" border="0" cellpadding="0" cellspacing="0">
+	<thead class="fixedHeader">
+	  <tr>	    		
+	  	<th class="th1">Year</th>
+	  	<th class="th1">Model</th>
+	  	<th class="th1">Description</th>
+	    <th class="th1">Category</th>
+	    <th class="th1">Product</th>
+	  </tr>
+	</thead>
+	
+	<tbody class="scrollContent">
+	  <% if !@recent_mpc.nil? %>	
+		<% for mpc in @recent_mpc %>
+	  	  <tr>
+	    	<td class="td2"><%=h mpc.model.year %></td>
+	    	<td class="td2"><%=h mpc.model.model %></td>
+	    	<td class="td2"><%=h mpc.model.description %></td>
+	    	<td class="td2"><%=h mpc.category.category_name %></td>
+	    	<td class="td1"><%=h mpc.product.product_number %></td>
+	  	  </tr>
+		<% end -%>
+	  <% end -%>
+	</tbody>
+	</table>    
+  </div>	
+	    
+        
+<br />
+<br />
+
+Make: <%= h(@update_make) %><br />
+<% if @product	%>
+  Product_Number: <%= h(@product.product_number) %>, <%= h(@product.id) %><br />
+<% end -%>
+Category_Id: <%= h(@update_category.category_name) %> | <%= h(@update_category.id) %><br />
+Note: <%= h(@note) %><br />
+Model_Id(s): <br />
+<% if @update_mpc %>
+<% for item in @update_mpc %>
+	<% model = Model.find(item) %>
+	<%= h(model.model) %> |	<%= h(model.year) %> | <%= h(model.cc) %> |	<%= h(model.description) %> | <%= h(model.id) %><br />
+<% end -%>
+<% end -%>

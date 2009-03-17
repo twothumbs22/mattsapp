@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>McDonald ATV - Categories</title>
+  <%= stylesheet_link_tag "mcdatv", :media => 'screen' %>
+  <%= stylesheet_link_tag "print", :media => 'print' %>
+  <%= javascript_include_tag :defaults %>
+</head>
+<body>
+
+<div id="header">
+	<img src="/images/mcdatv.jpg" align="left" style="float: left" height="70"/>
+	<img src="/images/ATlogo.gif" align="right" style="float: right" height="70" />
+	<br />
+</div>
+
+<div id="top">
+	<div style="text-align: center;">
+	   <%= link_to("Applications",  :controller => 'model_product_categories',
+						:action => 'index') %> &nbsp;&nbsp;&nbsp;		
+	   <%= link_to("Categories", 	:controller => "categories",
+						:action => "index") %> &nbsp;&nbsp;&nbsp;
+	   <%= link_to("Models",	    :controller => "models",
+						:action => "index") %> &nbsp;&nbsp;&nbsp;
+	   <%= link_to("Products", 	    :controller => "products",
+						:action => "index") %> &nbsp;&nbsp;&nbsp;
+	</div>
+</div>
+
+<div id="center">
+	<div id="banner" height="150">
+		<%= @page_title || "Category Listing" %>		
+		<p style="color: green"><%= flash[:notice] %></p>
+	</div>
+	<div id="advanced"><%= yield  %></div>
+	<div class="padbottom"></div>
+</div>
+
+<div id="footer" align="center">
+	<p style="display: inline;"> McDonald ATV Online (c) 2009 </p>
+</div>
+</body>
+</html>

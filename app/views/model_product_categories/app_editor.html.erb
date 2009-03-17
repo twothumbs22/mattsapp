@@ -1,0 +1,103 @@
+<script type="text/javascript">
+<!--
+/* http://www.alistapart.com/articles/zebratables/ */
+function removeClassName (elem, className) {
+	elem.className = elem.className.replace(className, "").trim();
+}
+
+function addCSSClass (elem, className) {
+	removeClassName (elem, className);
+	elem.className = (elem.className + " " + className).trim();
+}
+
+String.prototype.trim = function() {
+	return this.replace( /^\s+|\s+$/, "" );
+}
+
+function stripedTable() {
+	if (document.getElementById && document.getElementsByTagName) {  
+		var allTables = document.getElementsByTagName('table');
+		if (!allTables) { return; }
+
+		for (var i = 0; i < allTables.length; i++) {
+			if (allTables[i].className.match(/[\w\s ]*scrollTable[\w\s ]*/)) {
+				var trs = allTables[i].getElementsByTagName("tr");
+				for (var j = 0; j < trs.length; j++) {
+					removeClassName(trs[j], 'alternateRow');
+					addCSSClass(trs[j], 'normalRow');
+				}
+				for (var k = 0; k < trs.length; k += 2) {
+					removeClassName(trs[k], 'normalRow');
+					addCSSClass(trs[k], 'alternateRow');
+				}
+			}
+		}
+	}
+}
+
+window.onload = function() { stripedTable(); }
+-->
+</script>
+
+<table width="100%">
+<tr>
+  <td valign="top" colspan="4">
+	<div class="mcd-form">
+	<form id="app_select">
+	<table>
+	<tr>
+	  <td valign="top" width="300">					
+		<div class="" id="select4">
+		  <label for="atv_category">
+		  	Category:
+	   	    <select id="atv_category" name="atv_category">
+	    	  <% for item in @atv_categories %>
+			  	<option value="<%= h(item.category_id) -%>"> <%= h(item.category_name) -%></option>
+			  <% end %>
+	   	    </select>
+	   	  </label>	  	
+		</div>				
+	  </td>
+	  <td valign="top" width="250">
+		<div class="" id="select1">	  	
+		  <label for="atv_make">
+		    ATV Make:
+	   	  	<select id="atv_make" name="atv_make">
+	    	  <% for item in @atv_makes %>
+				<option value="<%= h(item.make) -%>" <% if $atv_make==item.make -%> selected 
+		  	  <% end -%>>
+		 	  <%= h(item.make) -%></option><% end %>
+	   	  	</select>
+	   	  </label>
+		</div>
+	  </td>		
+	  <td valign="top">					
+		  <div class="" id="select6">	  	
+		  	<label for="atv_note">
+		  	  Note:
+			  <input type="text" id="atv_note" name="atv_note" size="45" />	
+			</label>
+		  </div>				
+	  </td>
+	</tr>
+	</table>
+	</form>
+	</div>
+  </td>
+</tr>
+<tr>
+  <td valign="top" align="left">
+	<div class="" id="select2"></div>
+  </td>
+  <td align="left" valign="top" colspan="3">	
+	<div class="" id="results"></div>
+  </td>
+</tr>
+</table>
+
+<%= observe_form("app_select",
+   :update => "select2",
+   :before => "Element.show('spinner')",
+   :complete => "Element.hide('spinner')",
+   :url => { :action => :app_edit_list},
+   :submit => "app_select" ) %>   

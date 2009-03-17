@@ -1,0 +1,44 @@
+<table>
+  <% for cat in @top_level_cats %>
+  <tr>
+	<td valign="top"><%= h(cat.category_name) %>
+	  <% if @cat_hash[cat.category_id] > 0 %>
+		&#40;
+		<%= @cat_hash[cat.category_id] %>
+		&#41;
+		<a href="#" onclick="Element.toggle('<%= h(cat.category_name) %>'); return false;">+</a>	
+		</td>	
+		<td>
+		<div id="<%= h(cat.category_name) %>" style="display: none;">
+
+	  <% end -%>
+	  <table>
+		<% for cats in @second_level_cats[cat.category_id] %>
+		  <tr>
+			<td valign="top"><%= cats.category_name %>
+			  <% if @cat_hash2[cats.category_id] > 0 %>
+				&#40;
+				<%= @cat_hash2[cats.category_id] %>
+				&#41;
+				<a href="#" onclick="Element.toggle('<%= h(cats.category_name) %>'); return false;">+</a>
+				</td>
+				<td>
+				<div id="<%= h(cats.category_name) %>" style="display: none;">
+				  <table>
+					<% for cats3 in @third_level_cats[cats.category_id] %>
+					  <tr>
+					  	<td><%= cats3.category_name %></td>
+					  </tr>
+					<% end -%>	
+				  </table>
+				</div>	
+			  <% end -%>
+		    </td>
+		  </tr>
+		<% end -%>
+	  </table>
+	</div>
+	</td>
+  </tr>
+  <% end -%>
+</table>

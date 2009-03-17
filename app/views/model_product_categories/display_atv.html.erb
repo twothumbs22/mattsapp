@@ -1,0 +1,33 @@
+<table class="tableone" summary="ATV application listing">
+<caption nowrap><%= @atv_year	%> <%= @atv_make %> <%= @atv_model %></caption>
+
+
+<tbody>
+<tr style="vertical-align:top;"><td>
+	<table class="tabletwo">
+	<thead>
+			<tr>
+			  <th colspan="4" class="th10" style="text-align:center;">Applications</th>
+			</tr>
+			<tr>
+		  	<th class="th10"></th>
+		  	<th class="th10">Category</th>
+		  	<th class="th10">Part Number</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% for app in @atv_apps %>
+			<tr>
+				<td></td>
+				<td><%= app.category.category_name %></td>
+				<td><%= app.product.product_number %></td>
+				<td><%= app.category.parent_id %></td>
+		  	
+			</tr>
+			<% end -%>
+		</tbody>
+		</table>
+		</td>
+</td>
+</tr>
+</table>
