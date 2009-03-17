@@ -44,34 +44,12 @@ window.onload = function() { stripedTable(); }
   <td valign="top">
 	<div class="mcd-form">
 	<%= form_remote_tag :update => "results", :url => { :action => "update_applications" } %>
-	<table>
-	<tr>
-	  <td valign="top" width="300">					
-		<div class="" id="select4">
-		  <label for="atv_category">
-		  	Category:
-	   	    <select id="atv_category" name="atv_category">
-	    	  <% for item in @atv_categories %>
-			  	<option value="<%= h(item.category_id) -%>"> <%= h(item.category_name) -%></option>
-			  <% end %>
-	   	    </select>
-	   	  </label>	  	
-		</div>				
-	  </td>
-	  <td valign="top" width="300">					
-		  <div class="" id="select5">	  	
-		  	<label for="product_product_number">
-		  	  Product Number:
-			  <%= text_field_with_auto_complete :product, :product_number, { :size => 15 }, :skip_style => true -%>
-			</label>
-		  </div>			
-	  </td>	  
-	</tr>
+	<fieldset>
+	<legend>Add An Application</legend>
+	<table width="300">
 	<tr>
 	  <td valign="top">
-		<div class="" id="select1">	  	
-		  <label for="atv_make">
-		    ATV Make:
+		  <label for="atv_make">ATV Make:
 	   	  	<select id="atv_make" name="atv_make">
 	    	  <% for item in @atv_makes %>
 				<option value="<%= h(item.make) -%>" <% if $atv_make==item.make -%> selected 
@@ -79,44 +57,58 @@ window.onload = function() { stripedTable(); }
 		 	  <%= h(item.make) -%></option><% end %>
 	   	  	</select>
 	   	  </label>
-		</div>
 	  </td>		
+	</tr>
+	<tr>
 	  <td valign="top">					
-		  <div class="" id="select6">	  	
-		  	<label for="atv_note">
-		  	  Note:
-			  <input type="text" id="atv_note" name="atv_note" size="45" />	
-			</label>
-		  </div>				
+		  <label for="atv_category">Category:
+	   	    <select id="atv_category" name="atv_category">
+	    	  <% for item in @atv_categories %>
+			  	<option value="<%= h(item.category_id) -%>"> <%= h(item.category_name) -%></option>
+			  <% end %>
+	   	    </select>
+	   	  </label>	  	
 	  </td>
 	</tr>
 	<tr>
-	  <td valign="top" align="left" colspan="2">
-		<div class="" id="select2">	
-		  <div class="" id="select3"></div>				
-		</div>
+	  <td valign="top">					
+		  	<label for="product_product_number">Product Number:
+		  	  <%= text_field_with_auto_complete :product, :product_number, { :size => 15 }, :skip_style => true -%>
+			</label>
+	  </td>
+	</tr>
+	<tr>  
+	  <td valign="top">					
+		  	<label for="atv_note">Note:
+		  	  <input type="text" id="atv_note" name="atv_note" size="45" />	
+			</label>
+	  </td>
+	</tr>
+	<tr>
+	  <td valign="top" align="left">
+		<div id="select"></div>
 	  </td>
 	  <td valign="top" align="left">
 		<%= submit_to_remote("go", "GO", :url => { :action => "update_applications" },
 		  :failure => "alert('There was an error with the update..');", :update => "results") %>			
 	  </td>
-
 	</tr>
 	</table>
+	</fieldset>	
 	</div>
 
   </td><td valign="top">
 	
-	<div class="" id="results">
+<div id="results">
   <div id="tableContainer" class="tableContainer">
-	<table class="scrollTable" width="100%" border="0" cellpadding="0" cellspacing="0">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0">
 	<thead class="fixedHeader">
 	  <tr>	    		
-	  	<th class="th1">Year</th>
-	  	<th class="th1">Model</th>
-	  	<th class="th1">Description</th>
-	    <th class="th1">Category</th>
-	    <th class="th1">Product</th>
+	  	<th>Year</th>
+	  	<th>Model</th>
+	  	<th>Description</th>
+	    <th>Category</th>
+	    <th>Product</th>
 	  </tr>
 	</thead>
 	
@@ -124,11 +116,11 @@ window.onload = function() { stripedTable(); }
 	  <% if !@recent_mpc.nil? %>	
 		<% for mpc in @recent_mpc %>
 	  	  <tr>
-	    	<td class="td2"><%=h mpc.model.year %></td>
-	    	<td class="td2"><%=h mpc.model.model %></td>
-	    	<td class="td2"><%=h mpc.model.description %></td>
-	    	<td class="td2"><%=h mpc.category.category_name %></td>
-	    	<td class="td1"><%=h mpc.product.product_number %></td>
+	    	<td><%=h mpc.model.year %></td>
+	    	<td><%=h mpc.model.model %></td>
+	    	<td><%=h mpc.model.description %></td>
+	    	<td><%=h mpc.category.category_name %></td>
+	    	<td><%=h mpc.product.product_number %></td>
 	  	  </tr>
 		<% end %>
 	  <% end %>
@@ -143,6 +135,6 @@ window.onload = function() { stripedTable(); }
 </table>
 
 <%= observe_field("atv_make",
-   :update => "select2",
+   :update => "select",
    :url => { :action => :show_models},
    :with => "atv_make") %>   

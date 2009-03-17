@@ -38,30 +38,18 @@ function stripedTable() {
 window.onload = function() { stripedTable(); }
 -->
 </script>
-
-<table width="100%">
+<div id="left">	
+<table>
 <tr>
-  <td valign="top" colspan="4">
+  <td valign="top" colspan="4" width="400">
 	<div class="mcd-form">
 	<form id="app_select">
+	<fieldset>
+	<legend>Application Updater</legend>
 	<table>
 	<tr>
-	  <td valign="top" width="300">					
-		<div class="" id="select4">
-		  <label for="atv_category">
-		  	Category:
-	   	    <select id="atv_category" name="atv_category">
-	    	  <% for item in @atv_categories %>
-			  	<option value="<%= h(item.category_id) -%>"> <%= h(item.category_name) -%></option>
-			  <% end %>
-	   	    </select>
-	   	  </label>	  	
-		</div>				
-	  </td>
-	  <td valign="top" width="250">
-		<div class="" id="select1">	  	
-		  <label for="atv_make">
-		    ATV Make:
+	  <td valign="top">
+		  <label for="atv_make">ATV Make:
 	   	  	<select id="atv_make" name="atv_make">
 	    	  <% for item in @atv_makes %>
 				<option value="<%= h(item.make) -%>" <% if $atv_make==item.make -%> selected 
@@ -69,31 +57,50 @@ window.onload = function() { stripedTable(); }
 		 	  <%= h(item.make) -%></option><% end %>
 	   	  	</select>
 	   	  </label>
-		</div>
-	  </td>		
+	  </td>
+	</tr>
+	<tr>
 	  <td valign="top">					
-		  <div class="" id="select6">	  	
-		  	<label for="atv_note">
-		  	  Note:
+		  <label for="atv_category">Category:
+	   	    <select id="atv_category" name="atv_category">
+	    	  <% for item in @atv_categories %>
+			  	<option value="<%= h(item.category_id) -%>"> <%= h(item.category_name) -%></option>
+			  <% end %>
+	   	    </select>
+	   	  </label>	  	
+	  </td>
+	</tr>
+	<tr>	
+	  <td valign="top">					
+		  	<label for="atv_note">Note:
 			  <input type="text" id="atv_note" name="atv_note" size="45" />	
 			</label>
-		  </div>				
 	  </td>
 	</tr>
 	</table>
+	</fieldset>
 	</form>
 	</div>
-  </td>
+  </td>  
 </tr>
 <tr>
-  <td valign="top" align="left">
-	<div class="" id="select2"></div>
-  </td>
-  <td align="left" valign="top" colspan="3">	
-	<div class="" id="results"></div>
+  <td align="left" valign="top" width="300">	
+	<div id="results"></div>
   </td>
 </tr>
 </table>
+</div>
+
+<div id="right">
+<table>
+  <tr>
+    <td valign="top" align="left" rowspan="3">
+  	  <%= image_tag 'ajax-loader.gif', :id =>'spinner', :style =>"display:none; float:left;" %>
+	  <div id="select2"></div>
+    </td>
+  </tr>
+</table>
+</div>
 
 <%= observe_form("app_select",
    :update => "select2",

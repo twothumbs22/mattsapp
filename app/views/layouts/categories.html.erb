@@ -19,23 +19,26 @@
 
 <div id="top">
 	<div style="text-align: center;">
+	   <%= link_to 'Application Editor', app_editor_path %>&nbsp;&nbsp;|&nbsp;
+	   
 	   <%= link_to("Applications",  :controller => 'model_product_categories',
-						:action => 'index') %> &nbsp;&nbsp;&nbsp;		
+						:action => 'index') %> &nbsp;&nbsp;|&nbsp;		
 	   <%= link_to("Categories", 	:controller => "categories",
-						:action => "index") %> &nbsp;&nbsp;&nbsp;
+						:action => "index") %> &nbsp;&nbsp;|&nbsp;
 	   <%= link_to("Models",	    :controller => "models",
-						:action => "index") %> &nbsp;&nbsp;&nbsp;
+						:action => "index") %> &nbsp;&nbsp;|&nbsp;
 	   <%= link_to("Products", 	    :controller => "products",
-						:action => "index") %> &nbsp;&nbsp;&nbsp;
+						:action => "index") %> &nbsp;&nbsp;|&nbsp;
+						
+	   <%= link_to 'Rebuild ModelSummary Table', rebuild_model_summary_path %>&nbsp;&nbsp;&nbsp;
 	</div>
 </div>
 
 <div id="center">
-	<div id="banner" height="150">
-		<%= @page_title || "Category Listing" %>		
-		<p style="color: green"><%= flash[:notice] %></p>
-	</div>
-	<div id="advanced"><%= yield  %></div>
+	<% if flash[:notice] -%>
+	  <div id="notice" height="150"><%= flash[:notice] %></div>
+	<% end -%>
+	<div id="content"><%= yield :layout %></div>
 	<div class="padbottom"></div>
 </div>
 

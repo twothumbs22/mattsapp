@@ -1,25 +1,50 @@
 @CHARSET "ISO-8859-1";
 
-/* frame layout styles */
-body { background-color:#dc8; font-size:13px; margin:0; padding:0;}
+/* Frame Layout Styles */
+body 		{ background-color:#fff; font-size:13px; font-family: helvetica, verdana, arial, sans-serif; margin:0; padding:0; }
+#header 	{ background-color:#3c3; height:75px; width:100%; top:0; position:fixed; z-index:5; }
+#top 		{ background-color:#c33; height:20px; width:100%; top:75px; position:fixed; z-index:5; }
+#center 	{ background-color:#66f; height:auto !important; min-height:600px; top:95px; bottom:40px; position:relative; z-index:3; }
+#footer 	{ background-color:#3c3; height:30px; width:100%; margin:0; bottom:-1px; clear:both; position:fixed; z-index:4; }
+.padbottom 	{ height:30px; display:block; } /* Keeps center div from being covered by footer div */
 
-#header { position:fixed; background-color:#666; height:80px; width:100%; top:0; z-index:5;}
-#top { position:fixed; width:100%; background-color:#dc8; height:25px; top:80px; z-index:5;}
-#center { background-color:#eec; min-height:600px; /* for modern browsers */ height:auto !important; /* for modern browsers */
-		position:relative; top:105px; bottom:40px; z-index:3;}
-#footer { clear:both; background-color:#666; height:30px; width:100%; margin:0; bottom:-1px; position:fixed; z-index:4;}
+#notice 	{ background-color:#f0f0f0; color:green; font:bold sans-serif; border:1px solid red; padding:1em; margin-bottom:1em; } /* Error Reporting Styles */
+#content    { } /* div where page contents are displayed */
+#results	{ vertical-align:top; }
 
-.padbottom { display:block; height:30px;}
+#left		{ float:left; top:95px; left:0px; }
+#right		{ float:right; top:95px; right:0px; }
 
-/* Table display styles */
+/* Form Display Styles */
+form { display:inline; }
+.mcd-form fieldset 	{ background:#efe; } /* Form Background */
+.mcd-form legend 	{ background:#141; color:#dfd; font-family:sans-serif; padding:0.2em 1em; }
+.mcd-form label 	{ text-align:right; width:5em; float:left; padding-top:0.2em; margin-right:0.1em; display:block; white-space:nowrap; }
+.mcd-form input 	{ margin-left:0.5em; }
+
+/* auto_complete styles */
+.auto_complete 				  { background-color:white; border:1px solid #888; width:250px; position:absolute; margin:0px; padding:0px; }
+.auto_complete ul 			  { list-style-type:none; margin:0px; padding:0px; }    
+.auto_complete ul li 		  { list-style-type:none; display:block; margin:0; padding:2px; height:16px; }
+.auto_complete ul li.selected { background-color: #bbf; }
+
+
+/* Table Display Styles 
+.td1 {border-right:1px solid #000; white-space:nowrap;}
+.td2 {border-right:1px solid #fff; background:black; white-space:nowrap;}
+.td3 {border-right:1px solid #000; white-space:nowrap; color:#000;}
+.th1 {border-right:1px solid #fff; background:orange; white-space:nowrap;}
+.th10 {border-right:1px solid #fff; white-space:nowrap; background:#697210;}
+*/
+
+/* Table display styles
 td.active-app { background: black; color: red; text-decoration: italics;}
-
 td.inactive-app { background: red; color: black; text-decoration: underline;}
 
 caption { background:#fff; color:#697210; font-size:1.2em; margin-left:10px; margin-right:auto;}
+.innerb { height:20em; overflow:auto;}
 
 .tableone { border-collapse:collapse; margin-right:auto; background-color: black; border:1px solid #fff; color:#fff;}
-
 .tableone td { border-bottom:1px solid #fff; color:#fff; padding-left:3px; padding-right:2px;}
 .tableone th, .tabletwo th { text-align:left;}
 .tableone tbody { background:#eec; color:#000;}
@@ -29,114 +54,52 @@ caption { background:#fff; color:#697210; font-size:1.2em; margin-left:10px; mar
 .tablethree { border-collapse:collapse; margin-left:10px; margin-right:auto; background:#697210; border:1px solid #fff; color:#fff;}
 .tablethree td {background:#eee; color:#000;}
 
-.innerb { height:20em; overflow:auto;}
-
-.td1 {border-right:1px solid #000; white-space:nowrap;}
-.td2 {border-right:1px solid #fff; background:black; white-space:nowrap;}
-.td3 {border-right:1px solid #000; white-space:nowrap; color:#000;}
-.th1 {border-right:1px solid #fff; background:orange; white-space:nowrap;}
-.th10 {border-right:1px solid #fff; white-space:nowrap; background:#697210;}
-
 .tabledetails { background:#697210; border:1px solid #fff; color:#fff;}
-
-/*	Popup display styles (Dealer) */
 .lookup-table { background:#697210; border:1px solid #fff; color:#fff;}
-
 .row { clear:both; float:none; padding:2px; margin-left:5px;}
-
-.form-element { float:left; margin-right:2px; margin-bottom:0px;}
-
 .lookup-table .form-element input { padding:1px;}
-
-fieldset { }
-
 .lookup-table label { display:block; font-family:Verdana, sans-serif; color:#fff; font-size:9px; padding-bottom:0px;}
-
-form { display: inline;}
-
-/* Misc and error reporting styles */
-#notice { border: 2px solid red; padding: 1em; margin-bottom: 2em; background-color: #f0f0f0; font: bold sans-serif;}
-
-/* Form element styles */
-.mcd-form fieldset { background: #efe;}
-.mcd-form legend { color: #dfd; background: #141; font-family: sans-serif; padding: 0.2em 1em;}
-.mcd-form label { width: 5em; float: left; text-align: right; padding-top: 0.2em; margin-right: 0.1em; display: block; white-space:nowrap;}
-.mcd-form input { margin-left: 0.5em; }
-.mcd-form .submit { margin-left: 4em; }
-
-/* auto_complete styles */
-.auto_complete { position:absolute; width:250px; background-color:white; border:1px solid #888; margin:0px; padding:0px; }
-.auto_complete ul { list-style-type: none; margin:0px; padding:0px; }    
-.auto_complete ul li.selected { background-color: #bbf; }
-.auto_complete ul li { list-style-type:none; display:block; margin:0; padding:2px; height:16px; }
-
-/* scrollable table styles */
-/* define height and width of scrollable area. Add 16px to width for scrollbar          */
-div.tableContainer { clear:both; border:1px solid #963;	height:335px; overflow:auto; width:756px; }
-
-/* Reset overflow value to hidden for all non-IE browsers. */
-html>body div.tableContainer { overflow:hidden;	width:756px; }
-
-/* define width of table. IE browsers only                 */
-div.tableContainer table { float:left; width:740px; }
-
-/* define width of table. Add 16px to width for scrollbar.           */
-/* All other non-IE browsers.                                        */
-html>body div.tableContainer table { width:756px; }
-
-/* set table header to a fixed position. WinIE 6.x only                                       */
-/* In WinIE 6.x, any element with a position property set to relative and is a child of       */
-/* an element that has an overflow property set, the relative value translates into fixed.    */
-/* Ex: parent element DIV with a class of tableContainer has an overflow property set to auto */
-thead.fixedHeader tr { position:relative; }
-
-/* set THEAD element to have block level attributes. All other non-IE browsers            */
-/* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
-html>body thead.fixedHeader tr { display:block; }
-
-/* make the TH elements pretty */
-thead.fixedHeader th { background:#C96;	border-left:1px solid #EB8;	border-right:1px solid #B74; border-top:1px solid #EB8;
-		font-weight:normal;	padding:4px 3px; text-align:left; }
-
-/* make the A elements pretty. makes for nice clickable headers                */
-thead.fixedHeader a, thead.fixedHeader a:link, thead.fixedHeader a:visited { color:#FFF; display:block; text-decoration:none; width:100% }
-
-/* make the A elements pretty. makes for nice clickable headers                */
-/* WARNING: swapping the background on hover may cause problems in WinIE 6.x   */
-thead.fixedHeader a:hover {	color:#FFF;	display:block; text-decoration:underline; width:100% }
-
-/* define the table content to be scrollable                                              */
-/* set TBODY element to have block level attributes. All other non-IE browsers            */
-/* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
-/* induced side effect is that child TDs no longer accept width: auto                     */
-html>body tbody.scrollContent {	display:block;	height:312px; overflow:auto; width:100% }
-
-/* make TD elements pretty. Provide alternating classes for striping the table */
-/* http://www.alistapart.com/articles/zebratables/                             */
-tbody.scrollContent td, tbody.scrollContent tr.normalRow td { background:#FFF; border-bottom:none; border-left:none;
-		border-right:1px solid #CCC; border-top:1px solid #DDD;	padding:2px 3px 3px 4px; }
-tbody.scrollContent tr.alternateRow td { background:#EEE; border-bottom:none; border-left:none;	border-right:1px solid #CCC;
-		border-top:1px solid #DDD; padding:2px 3px 3px 4px; }
-
-/* define width of TH elements: 1st, 2nd, and 3rd respectively.          */
-/* Add 16px to last TH for scrollbar padding. All other non-IE browsers. */
-/* http://www.w3.org/TR/REC-CSS2/selector.html#adjacent-selectors        */
-html>body thead.fixedHeader th { width:50px; }
-html>body thead.fixedHeader th + th { width:200px; }
-html>body thead.fixedHeader th + th + th { width:200px; }
-html>body thead.fixedHeader th + th + th + th {	width:200px; }
-html>body thead.fixedHeader th + th + th + th + th { width:96px; } 
-
-/* define width of TD elements: 1st, 2nd, and 3rd respectively.          */
-/* All other non-IE browsers.                                            */
-/* http://www.w3.org/TR/REC-CSS2/selector.html#adjacent-selectors        */
-html>body tbody.scrollContent td { width:50px; }
-html>body tbody.scrollContent td + td {	width:200px; }
-html>body tbody.scrollContent td + td + td { width:200px; }
-html>body tbody.scrollContent td + td + td + td { width:200px; }
-html>body tbody.scrollContent td + td + td + td + td { width:80px; }
 
 .editor-div-add { color:black;	background:white; }
 .editor-div-add td { color:black; background:white; }
 .editor-div-sub { color:white; background:black; }
 .editor-div-sub td { color:white; background:black;}
+ */
+
+
+
+/* Scrollable Table Styles */
+div.tableContainer 			 { clear:both; border:1px solid #963;	height:335px; overflow:auto; width:756px; } /* define height and width of scrollable area. Add 16px to width for scrollbar */
+html>body div.tableContainer { overflow:hidden;	width:756px; } /* Reset overflow value to hidden for all non-IE browsers. */
+
+div.tableContainer table 		   { float:left; width:740px; } /* define width of table. IE browsers only */
+html>body div.tableContainer table { width:756px; } /* define width of table. Add 16px to width for scrollbar. non-IE */
+
+thead.fixedHeader tr 		   { position:relative; } /* set table header to a fixed position. WinIE 6.x only                                       */
+html>body thead.fixedHeader tr { display:block; } /* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
+
+thead.fixedHeader th { background:#C96;	border-left:1px solid #EB8;	border-right:1px solid #B74; border-top:1px solid #EB8;
+		font-weight:normal;	padding:4px 3px; text-align:left; } /* make the TH elements pretty */
+
+thead.fixedHeader a, 
+thead.fixedHeader a:link, 
+thead.fixedHeader a:visited { color:#FFF; display:block; text-decoration:none; 		width:100% }
+thead.fixedHeader a:hover 	{ color:#FFF; display:block; text-decoration:underline; width:100% } /* make the A elements pretty. */
+
+html>body tbody.scrollContent {	display:block;	height:312px; overflow:auto; width:100% } /* define the table content to be scrollable */
+             
+tbody.scrollContent td, 
+tbody.scrollContent tr.normalRow td    { background:#FFF; border-bottom:none; border-left:none; border-right:1px solid #CCC; border-top:1px solid #DDD;	padding:2px 3px 3px 4px; white-space:nowrap; }
+tbody.scrollContent tr.alternateRow td { background:#EEE; border-bottom:none; border-left:none;	border-right:1px solid #CCC; border-top:1px solid #DDD; padding:2px 3px 3px 4px; white-space:nowrap; } /* make TD elements pretty. Provide alternating classes for striping the table */
+
+html>body thead.fixedHeader th 					{ width:50px; }	/* define width of TH elements: 1st, 2nd, and 3rd respectively.          */
+html>body thead.fixedHeader th + th 			{ width:200px; }/* Add 16px to last TH for scrollbar padding. All other non-IE browsers. */
+html>body thead.fixedHeader th + th + th 		{ width:200px; }
+html>body thead.fixedHeader th + th + th + th 	{ width:200px; }
+html>body thead.fixedHeader th + th + th + th + th { width:96px; } 
+
+html>body tbody.scrollContent td 				{ width:50px; } /* define width of TD elements: 1st, 2nd, and 3rd respectively.          */
+html>body tbody.scrollContent td + td 			{ width:200px; }/* All other non-IE browsers.                                            */
+html>body tbody.scrollContent td + td + td 		{ width:200px; }/* http://www.w3.org/TR/REC-CSS2/selector.html#adjacent-selectors        */
+html>body tbody.scrollContent td + td + td + td { width:200px; }
+html>body tbody.scrollContent td + td + td + td + td { width:80px; }
